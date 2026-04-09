@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
-import { createPublicClient, createWalletClient, custom, http, formatUnits, parseUnits } from "viem";
+import { createPublicClient, createWalletClient, custom, http, formatUnits, parseUnits, PublicClient, WalletClient } from "viem";
 import { FlowFiABI, CONTRACT_ADDRESS } from "@/lib/abi";
 
 const ARC_TESTNET = {
@@ -58,8 +58,8 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
   const [walletBalance, setWalletBalance] = useState("0");
   const [isLoading, setIsLoading] = useState(false);
   const [logs, setLogs] = useState<LogEntry[]>([]);
-  const [publicClient, setPublicClient] = useState<ReturnType<typeof createPublicClient> | null>(null);
-  const [walletClient, setWalletClient] = useState<ReturnType<typeof createWalletClient> | null>(null);
+  const [publicClient, setPublicClient] = useState<PublicClient | null>(null);
+  const [walletClient, setWalletClient] = useState<WalletClient | null>(null);
 
   const addLog = useCallback((entry: Omit<LogEntry, "id" | "timestamp">) => {
     setLogs((prev) => [
