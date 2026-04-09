@@ -7,7 +7,7 @@
 
 ---
 
-## 🏆 Hackathon Highlights (Why FlowFi?)
+## 🏆 Highlights (Why FlowFi?)
 
 ### 1. 🛡️ Bulletproof Sync Engine
 Most dApps rely on fragile RPC indexing that often breaks due to block limits or node latency. FlowFi implements a **Custom Sequential Block Scanner**:
